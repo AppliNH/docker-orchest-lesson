@@ -2,6 +2,17 @@
 
 Simple and easy to use, covers up to 80% of use cases with 20% of Kubernetes functionalities (approximative numbers, just a feeling/idea).
 
+The common terms are :
+
+- node: can represent somewhat of a machine
+- service: carry several containers
+
+You deploy services which will be distributed among nodes. You can also distribute your services in replicas. This way, if one crashes, the others will guarrantee the availability of your whole architecture while the service is being automatically restarded by Swarm.
+
+## Notes
+
+**Note 1:** Build you images elsewhere than with Swarm, and pull them through your container registry, right into the Swarm.
+
 ## `docker swarm init`
 
 - Inits Swarm

@@ -1,11 +1,12 @@
 # Networking features
 
-`--driver overlay` will allow to create a network where nodes can reach each other, just like a VLAN.
+`--driver overlay` will allow to create a network where nodes can reach each other, just like a VLAN. It's the kind of driver you'll want to work with while using Swarm.
 
 It is also possible to enable IPSec encryption on network creation.
 
 Something cool is to separate the back-end network from the fornt-end network.
 
+**Note that a service CAN be attached to many different networks at once.**
 
 ## Practice
 
