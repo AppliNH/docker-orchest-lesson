@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: app-nginx-service
+spec:
+  type: NodePort
+  ports: 
+  - port: 80
+  selector: #Helps a service finding the resource which he needs to interact with
+    app: app-nginx # Custom key-value, which has been set down there for the Deployment object
+
+# You can add "---" to split several configurations in the same file.
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-nginx-deployment
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: app-nginx # Custom label has to be declared here as a matchLabel so the Service object can link itself to the Deployment object through the label
+  template:
+    metadata:
+      labels:
+        app: app-nginx # Custom key-value that can be used by the Service object (up there) to connect with this object
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.17.3
+        ports:
+        - containerPort: 80
