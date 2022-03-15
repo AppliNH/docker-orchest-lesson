@@ -11,6 +11,13 @@ Then on the two other machines :
 
 You can get the token at any time on the leader machine by using `docker swarm join-token manager`.
 
+So, from the node that has been created, save the token in a variable with something like :
+
+
+```bash
+TOKEN=$(ssh $MASTER_IP docker swarm join-token -q manager)
+```
+
 
 
 
